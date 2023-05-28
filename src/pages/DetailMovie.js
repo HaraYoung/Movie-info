@@ -20,11 +20,11 @@ const DetailMovie = () => {
     setMovieDetail(json.data.movie);
     setLoading(false);
   };
-  console.log(movieDetail);
 
   React.useEffect(() => {
     getMovie();
   }, []);
+
   return (
     <div style={{padding: '1.5em 0'}}>
       {loading ? (

@@ -1,15 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
 import LoadingBar from '../component/Spinner.js'
 import MovieInfo from "../component/MovieInfoComponent.js";
 
-const MovieCard = styled.div``;
-
 const Movie = () => {
   const [loading, setLoading] = React.useState(true);
-  //https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year
   const [movies, setMovies] = React.useState([]);
   const getMovies = async () => {
     const response = await fetch(
@@ -33,7 +29,7 @@ const Movie = () => {
       {loading ? (
         <LoadingBar visible={loading} />
       ) : (
-        <MovieCard>
+        <div>
           <Row>
             <Col>
               {firstMovieArr.map((movie) => (
@@ -60,7 +56,7 @@ const Movie = () => {
               ))}
             </Col>
           </Row>
-        </MovieCard>
+        </div>
       )}
     </Container>
   );

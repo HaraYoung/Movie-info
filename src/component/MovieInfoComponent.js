@@ -27,13 +27,13 @@ const MovieInfoComponent = ({ id, title, coverImg, summary, genres }) => {
           <ul className={CssStyle.list}>
             {genres.map((item, idx) => (
               <li key={item} className={CssStyle.movieGenres}>
-                {item
-                  ? idx === 0
-                    ? `▪️ ${item} `
-                    : genres.length === idx + 1 && genres.length !== 1
-                    ? `${item}, `
-                    : item
-                  : ""}
+                {genres.length === idx + 1 && idx === 0
+                  ? `▪️ ${item} `
+                  : idx === 0
+                  ? `▪️ ${item}, `
+                  : genres.length === idx + 1
+                  ? item
+                  : `${item}, `}
               </li>
             ))}
           </ul>
